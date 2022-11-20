@@ -7,11 +7,11 @@ public class Shop {
 
     public static void Layout_Manager (String temp){
         
-        System.out.println(temp);
+        System.out.println(temp);//prints spaces(/n) or lines(-). depends what's passed through function
         
     }
     
-    public static String Text(String product_name, int product_qty){
+    public static String Text(String product_name, int product_qty){//asks user how much they want/ how much u got
         
         System.out.println("\nHow many " + product_name + "'s" + " do you want to buy?" );
         System.out.println("\nyou have " + product_qty + " already \n");
@@ -19,11 +19,11 @@ public class Shop {
         return("");
     }
     
-    public static double Buying_Product(int product_qty, double product_total, double product_price, String product_name){
+    public static double Buying_Product(int product_qty, double product_total, double product_price, String product_name){//calculations for price
         
         product_total = product_price * product_qty;
         System.out.println("\n" + product_qty + "x " + product_name + " = £" + String.format("%.2f", product_total) + "\n");
-        return(product_total);
+        return(product_total);//return calculated total
     }
         
         
@@ -31,6 +31,7 @@ public class Shop {
 
     public static void main(String[] args) {
         
+        //formatting
         String Barrier = "\n-------------------------------------------------------------------------------------------------------------\n";
         String Gap = "\n\n\n\n\n\n";
         String Short_Gap = "\n";
@@ -91,7 +92,8 @@ public class Shop {
                     input = -1;    
                     break;
 
-                case 1://asks how many of product user wants to buy/ how many you already have
+                case 1://if user wants product 1
+                    
                        //calculates new qty based on old qty + one just entered and calculates price
                        //outputs to the user.
                     chosen_product_num = 1;
@@ -99,13 +101,10 @@ public class Shop {
                     Layout_Manager(Short_Gap);//spaces
                     product1_qty = user_input.nextInt() + product1_qty;//take input
                     product1_total = Buying_Product(product1_qty, product1_total,  product1_price, product1_name);//calculations
-                    
-                    
-                    
-                    
+
                     break;
 
-                case 2:
+                case 2://if user wants product 2
                     chosen_product_num = 2;
                     Text(product2_name,product2_qty);//ask user how many they want
                     Layout_Manager(Short_Gap);//spaces
@@ -113,7 +112,7 @@ public class Shop {
                     product2_total = Buying_Product(product2_qty, product2_total,  product2_price, product2_name);//calculations
                     break;
                     
-                case 3:
+                case 3://if user wants product 3
                     chosen_product_num = 3;
                     Text(product3_name,product3_qty);//ask user how many they want
                     Layout_Manager(Short_Gap);//spaces
@@ -122,7 +121,7 @@ public class Shop {
                     break;
                     
                 case 4:
-                    chosen_product_num = 4;
+                    chosen_product_num = 4;//if user wants product 4
                     Text(product4_name,product4_qty);//ask user how many they want
                     Layout_Manager(Short_Gap);//spaces
                     product4_qty = user_input.nextInt() + product4_qty;//take input
@@ -141,6 +140,9 @@ public class Shop {
             System.out.println("Press -1 to stop buying products and get the total. Otherwise, click 1 to continue \n");
 
         }//end of while loop
+        
+        
+        //output receipt
         System.out.println("you have exited the Shop\n\n");
         
         System.out.println("   The Products you have ordered are...");//outputs amount for each product then total
